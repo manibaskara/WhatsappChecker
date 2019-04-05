@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout">
+
+    <data>
+
+        <variable
+                name="data"
+                type="com.doodleblue.whatsappchecker.model.dto.Contact"/>
+
+        <variable
+                name="position"
+                type="int"/>
+
+        <variable
+                name="lastPosition"
+                type="int"/>
+
+        <variable
+                name="listener"
+                type="com.doodleblue.whatsappchecker.adapter.listener.BaseRecyclerAdapterListener"/>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:text="@{data.name}"
+                android:id="@+id/edt_name"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/iv_whatsapp"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:hint="@string/number"
+                android:text="@{data.phoneNumber}"
+                android:id="@+id/edt_number"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_whatsapp"/>
+
+        <ImageView
+                android:id="@+id/iv_whatsapp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:onClick="@{(v)->listener.onClickItem(position, data)}"
+                android:src="@drawable/ic_whatsapp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintDimensionRatio="1:1"
+                android:contentDescription="@string/app_name"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_number"
+                android:background="@android:color/background_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

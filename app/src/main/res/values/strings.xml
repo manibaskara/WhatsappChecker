@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WhatsappChecker</string>
+    <string name="whatsapp_not_installed">Whatsapp is not installed in your device.</string>
+    <string name="alert_title">Alert</string>
+    <string name="empty_contacts">There is no contacts available in your device.</string>
+    <string name="install">Install</string>
+    <string name="cancel">Cancel</string>
+    <string name="name">Name</string>
+    <string name="number">Number</string>
+</resources>
